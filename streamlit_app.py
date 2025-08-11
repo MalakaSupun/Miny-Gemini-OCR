@@ -24,11 +24,22 @@ st.markdown("""
         width: 100%;
         margin-top: 1rem;
     }
+    .col_01{
+        border: 1px dashed #4a90e2;
+        border-radius: 10px;    
+    }  
+    .col_02{
+        border: 1px dashed #4a90e2;
+        border-radius: 10px;   
+        margin-bottom : 1rem;    
+             
+    }                
     .upload-text {
         text-align: center;
         padding: 2rem;
         border: 2px dashed #4a90e2;
         border-radius: 10px;
+        margin-bottom:1rem    
     }
     .results-area {
         background-color: #f0f2f6;
@@ -79,10 +90,17 @@ st.title("🔍 Miny-Gemini-OCR")
 st.markdown("#### Transform Images to Text with AI")
 
 # Create two columns for the main content
-col1, col2 = st.columns([1, 1])
+col1, col2 = st.columns([1, 1],border=True)
 
 with col1:
-    st.markdown("### Upload Image")
+    # # with
+    # st.markdown("### Upload Image")
+    st.markdown("""
+            <div class="col_01" align="center">
+                <h3>📸 Upload the image</h3>
+            </div>
+         """, unsafe_allow_html=True)
+
     uploaded_file = st.file_uploader(
         "Choose an image file",
         type=['png', 'jpg', 'jpeg'],
@@ -98,18 +116,31 @@ with col1:
             </div>
         """, unsafe_allow_html=True)
 
+with col2:
+    # st.markdown("### ")
+    st.markdown("""
+            <div class="col_02" align="center">
+                <h3>Results</h3>
+            </div>
+         """, unsafe_allow_html=True)
+    # st.markdown("""
+    #         <div class="upload-text" algin="center">
+    #             <p> Results will show here.</p>
+    #         </div>
+    #     """, unsafe_allow_html=True)
+
 # Preview and Process
 if uploaded_file:
     with col1:
         # Display the uploaded image
         image = Image.open(uploaded_file)
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.image(image, caption="Uploaded Image", use_container_width=True)
         
         # Process button
         process = st.button("🔍 Extract Text", type="primary")
     
     with col2:
-        st.markdown("### Results")
+        # st.markdown("### Results")
         
         if process:
             try:
@@ -143,7 +174,9 @@ if uploaded_file:
                         label="📥 Download Results",
                         data=result,
                         file_name="ocr_results.txt",
-                        mime="text/plain"
+                        mime="text/plain",
+                        use_container_width= True, 
+                        type="primary"
                     )
                     
             except Exception as e:
