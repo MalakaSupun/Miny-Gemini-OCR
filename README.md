@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img src="IMGs/IMG_01.png" alt="OCR Demo Image" width="600"/>
+  <img src="IMGs/IMG_01.png" alt="OCR Demo Image" width="1024"/>
 </div>
 
 <div align="center">
