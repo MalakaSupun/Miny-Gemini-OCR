@@ -33,6 +33,7 @@ This project demonstrates how to perform OCR on images using the Gemma 3:4B-it m
   - langchain
   - langchain-ollama
   - Pillow (PIL)
+  - Streamlit
   - typing
 
 ## Installation
@@ -47,13 +48,14 @@ cd Miny-Gemini-OCR
 
 ## Usage
 
+### CLI:
 Run the OCR on an image using the following command:
 
 ```bash
 python Main.py --input-image path/to/your/image.png
 ```
 
-### Optional Arguments
+#### Optional Arguments
 
 - `--model`: Specify the model name (default: "gemma3:4b-it-q4_K_M")
 - `--base-url`: Set custom Ollama server URL (default: "http://localhost:11434")
@@ -63,6 +65,19 @@ Example with all options:
 ```bash
 python Main.py --input-image IMGs/IMG_01.png --model gemma3:4b-it-q4_K_M --base-url http://localhost:11434 --temperature 0.2
 ```
+### GUI:
+
+Run this command to open the streamlit OCR.
+```
+streamlit run streamlit_app.py 
+```
+#### Streamlit Application:
+
+<div align="center">
+  <img src="IMGs/IMG_02.png" alt="OCR Demo Image" width="1024"/>
+</div>
+
+
 
 ## How It Works
 
@@ -93,3 +108,5 @@ python Main.py --input-image IMGs/IMG_01.png --model gemma3:4b-it-q4_K_M --base-
 ## License
 
 See the [LICENSE](LICENSE) file for details.
+
+---
